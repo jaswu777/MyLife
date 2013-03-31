@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template
 app = Flask(__name__)
+import urllib2
+import json
 
 @app.route("/")
 def hello():
@@ -16,12 +18,15 @@ def sample():
 
 @app.route("/mylife")
 def mylife():
-    title = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["data"]["song"]["title"]       #song
-    start_time = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["start_time"]     #artist
-    end_time = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["end_time"]     #artist
-    name = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["from"]["name"]     #artist
-    data = {"title": title, "start_time": start_time, "end_time": end_time}
-    return render_template('mylife.html', title=title)
+    songs = []
+    data = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"]
+    for i in range(5):
+        songs.append(data[i])
+    #title = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["data"]["song"]["title"]       #song
+    #start_time = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["start_time"]     #artist
+    #end_time = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["end_time"]     #artist
+    #name = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["from"]["name"]     #artist
+    return render_template('mylife.html', songs=songs)
 
 @app.route("/porn")
 def porn():
