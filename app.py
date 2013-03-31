@@ -22,6 +22,9 @@ def mylife():
 def porn():
 	return "Porn!"
 
+def location():
+    return "LOCATION LOLLLL"
+
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
