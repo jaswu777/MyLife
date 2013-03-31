@@ -20,12 +20,16 @@
     });
 
 	FB.getLoginStatus(function(response) {
+    console.log(1);
 	  if (response.status === 'connected') {
+      console.log(2);
 		// connected
 	  } else if (response.status === 'not_authorized') {
+      console.log(3);
 		// not_authorized
 		login();
 	  } else {
+      console.log(4);
 		// not_logged_in
 		login();
 	  }
@@ -34,11 +38,15 @@
 
   };
 function login() {
+  console.login("login test");
     FB.login(function(response) {
+      console.login("function test");
         if (response.authResponse) {
+          console.login("testing response.");
             // connected
 			testAPI();
         } else {
+          console.login("else test");
             // cancelled
         }
     });
