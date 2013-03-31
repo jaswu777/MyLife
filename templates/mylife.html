@@ -62,16 +62,6 @@ function testAPI() {
 	<header>
     <h1> Music </h1>
     </header>
-
-    <h3 id="year"> 2013 </h3>
-    <h3 id="month"> March </h3>
-    <h3 id="day"> 30 </h3>
-    <p> </p>
-    <p>  </p>
-    
-    <h3 id="day"> 29 </h3>
-    <p>  </p>
-    <p>  </p>
     {% for song in songs %}
         <p>{{ song.data.song.title }}</p>
     {% endfor %}
