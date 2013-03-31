@@ -19,14 +19,18 @@ def sample():
 @app.route("/mylife")
 def mylife():
     songs = []
+    info = []
     data = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"]
+    other = json.loads(urllib2.urlopen("https://api.foursquare.com/v2/users/self/checkins?oauth_token=J0A4I2LRHH4CYGRPY545Q2SKIEHKMW3XF5ZUXVR1QURHH4MO").read())["response"]["checkins"]["items"]
     for i in range(5):
         songs.append(data[i])
+    for i in range(5):
+        info.append(other[i]["venue"])
     #title = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["data"]["song"]["title"]       #song
     #start_time = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["start_time"]     #artist
     #end_time = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["end_time"]     #artist
     #name = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["from"]["name"]     #artist
-    return render_template('mylife.html', songs=songs)
+    return render_template('mylife.html', data=[songs, info])
 
 @app.route("/porn")
 def porn():
