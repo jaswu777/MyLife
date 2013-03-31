@@ -16,7 +16,12 @@ def sample():
 
 @app.route("/mylife")
 def mylife():
-	return render_template('mylife.html')
+    title = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["data"]["song"]["title"]       #song
+    start_time = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["start_time"]     #artist
+    end_time = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["end_time"]     #artist
+    name = json.loads(urllib2.urlopen("https://graph.facebook.com/me/music.listens?access_token=AAADWmEJZAo5wBALusrxVLBReZAPYRCsbJifjRrjkKOw8ZBZA4xuaZCB8HuSkxPhbjFYD9xheEM0zA6mRP8ZBJewMfp8V9vTZBsOVOWsH4l5MgZDZD").read())["data"][0]["from"]["name"]     #artist
+    data = {"title": title, "start_time": start_time, "end_time": end_time}
+    return render_template('mylife.html', title=title)
 
 @app.route("/porn")
 def porn():
