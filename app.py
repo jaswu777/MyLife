@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -12,6 +13,10 @@ def hackru():
 @app.route("/sample")
 def sample():
 	return render_template('sample.html', my_variable='Variable substitution worked')
+
+@app.route("/mylife")
+def mylife():
+	return render_template('mylife.html')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
