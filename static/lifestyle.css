@@ -1,20 +1,45 @@
-
-body {
-	font-family: heveltica, comic-sans;
-	background-color:#D8D8D8;
-	min-width:420px;
-	max-width:920px;
+body
+{
+background-color:#303030;
 }
-
-h1 {
-	color:#F00000;
+h1
+{
+vertical-align:middle;
+font-size:50px;
+font-family:"helvetica";
+text-align:center;
+letter-spacing:-2px;
+color:#ffffff;
 }
-
-p {
-	color:#080808;
-	font-size:16px;
+.a
+{
+ font-size:50px;
+ letter-spacing:-2px;
 }
-
-.six columns {
-	float:right;
+.b
+{  
+font-size:200px;    
+color:red;
+}
+.c
+{
+    color:red;
+}
+h3 
+{
+vertical-align:middle;
+font-size:50px;
+font-family:"helvetica";
+text-align:center;
+letter-spacing:-2px;
+color:#ffffff;
+}
+.z
+{
+font-size:100px;
+    }
+.n
+{
+font-size:100px;
+color:red;
 }
