@@ -15,12 +15,19 @@ body {
 	color:red;
 }
 
+#third {
+    color:red;
+}
+
 #one {
     position:relative;
     left:40px;
     color:#080808;
 }
 
+p {
+    color:#080808;
+}
 
 #music{
 

@@ -29,6 +29,11 @@ body {
 	float: left;
 }
 
+#videos {
+    width:400px;
+    float:left;
+}
+
 #location{
 width: 400px;
 
