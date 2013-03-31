@@ -17,10 +17,10 @@ def sample():
 @app.route("/mylife")
 def mylife():
 	return render_template('mylife.html')
-	
+
 @app.route("/porn")
 def porn():
-	return "Porn"
+	return render_template('http://www.pornhub.com')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
