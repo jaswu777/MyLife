@@ -8,3 +8,53 @@ Facebook:
 	https://api.foursquare.com/v2/users/self/checkins?oauth_token=J0A4I2LRHH4CYGRPY545Q2SKIEHKMW3XF5ZUXVR1QURHH4MO
 
 	https://graph.facebook.com/oauth/authorize?type=user_agent&client_id=235949436543900&redirect_uri=http://murmuring-woodland-1938.herokuapp.com/&scope=user_actions.music,read_stream,offline_access
+
+
+
+
+
+body
+{
+background-color:#303030;
+}
+h1
+{
+vertical-align:middle;
+font-size:50px;
+font-family:"helvetica";
+text-align:center;
+letter-spacing:-2px;
+color:#ffffff;
+}
+.a
+{
+ font-size:50px;
+ letter-spacing:-2px;
+}
+.b
+{  
+font-size:200px;    
+color:red;
+}
+.c
+{
+    color:red;
+}
+h3 
+{
+vertical-align:middle;
+font-size:50px;
+font-family:"helvetica";
+text-align:center;
+letter-spacing:-2px;
+color:#ffffff;
+}
+.z
+{
+font-size:100px;
+    }
+.n
+{
+font-size:100px;
+color:red;
+}
