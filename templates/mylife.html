@@ -72,7 +72,9 @@ function testAPI() {
     <h3 id="day"> 29 </h3>
     <p> Filler Text 1 </p>
     <p> Filler Text 2 </p>
-    <p>{{ songs }}</p>
+    {% for song in songs %}
+        <p>{{ song.data.song.title }}</p>
+    {% endfor %}
 
 </body>
 
