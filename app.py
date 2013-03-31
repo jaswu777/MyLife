@@ -36,6 +36,9 @@ def porn():
 @app.route("/location")
 def location():
     return "LOCATION LOLLLL"
+@app.route("/helperbot")
+def helperbot():
+    return "helperbot"
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
