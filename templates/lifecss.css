@@ -1,0 +1,18 @@
+
+body {
+    font-family: helvetica, sans-serif;
+    font-size: 16px;
+    min-width: 420px;
+    max-width: 920px;
+}
+
+h1 {
+    position: relative;
+    left: 140px;
+    color:red;
+}
+
+p {
+    position: relative;
+    left:100px;
+}

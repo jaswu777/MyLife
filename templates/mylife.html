@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title> My Life </title>
-<link rel="stylesheet" type="css/text" href="/static/lifecss.css">
+<link rel="stylesheet" type="css/text" href="/static/css/foundation.css">
+<link rel="stylesheet" type="css/text" href="/static/css/normalize.css">
+<script type="text/javascript" src="/static/js/foundation/foundation.js"></script>
 </head>
 
 <body>
-<div id="fb-root"></div>
+  <div id="fb-root"></div>
 <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
@@ -19,17 +21,17 @@
       xfbml      : true  // parse XFBML
     });
 
-	FB.getLoginStatus(function(response) {
-	  if (response.status === 'connected') {
-		// connected
-	  } else if (response.status === 'not_authorized') {
-		// not_authorized
-		login();
-	  } else {
-		// not_logged_in
-		login();
-	  }
-	 });
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+    // connected
+    } else if (response.status === 'not_authorized') {
+    // not_authorized
+    login();
+    } else {
+    // not_logged_in
+    login();
+    }
+   });
     // Additional init code here
 
   };
@@ -37,7 +39,7 @@ function login() {
     FB.login(function(response) {
         if (response.authResponse) {
             // connected
-			testAPI();
+      testAPI();
         } else {
             // cancelled
         }
@@ -58,9 +60,15 @@ function testAPI() {
      ref.parentNode.insertBefore(js, ref);
    }(document));
 </script>
+
 	<header>
-    <h1> Life </h1>
+    <h1> Music </h1>
     </header>
+<<<<<<< HEAD
+    {% for song in songs %}
+        <p>{{ song.data.song.title }}</p>
+    {% endfor %}
+=======
 
     <h3 id="year"> 2013 </h3>
     <h3 id="month"> March </h3>
@@ -71,7 +79,18 @@ function testAPI() {
     <h3 id="day"> 29 </h3>
     <p> Filler Text 1 </p>
     <p> Filler Text 2 </p>
-    <p>{{ title }}</p>
+    {% for song in data[0] %}
+        <p>{{ song.data.song.title }}</p>
+    {% endfor %}
+    <hr>
+    {% for info in data[1] %}
+        <p>{{ info["name"] }}</p>
+        <p>{{ info["location"]["address"] }}</p>
+        <p>{{ info["location"]["postalcode"] }}</p>
+        <p>{{ info["location"]["city"] }}</p>
+        <p>{{ info["state"] }}</p>
+    {% endfor %}
+>>>>>>> 95554bed678f54f8b57b03ee6653cd5357cee3d4
 
 </body>
 
