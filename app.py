@@ -20,7 +20,7 @@ def mylife():
 
 @app.route("/porn")
 def porn():
-	return render_template('http://www.pornhub.com')
+	return "lol wut up the butt."
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
