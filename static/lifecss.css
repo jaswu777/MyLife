@@ -1,14 +1,13 @@
-
 body {
     font-family: helvetica, sans-serif;
     font-size: 16px;
     width: 920px;
-    background-color:red;
+    background-color:#D8D8D8;
 }
 
 #first {
     position:relative;
-    left: 7px;
+    left: 18px;
     color:red;
 }
 
@@ -18,18 +17,24 @@ body {
 
 #one {
     position:relative;
-    margin-left:40px;
+    left:40px;
     color:#080808;
 }
 
 
 #music{
 
-	width: 400px;
-	float: left;
+    width: 400px;
+    float: left;
 }
 
 #location{
 width: 400px;
+float: right;
 
+}
+
+#mylife-container{
+    width: 920px;
+    float: left;
 }

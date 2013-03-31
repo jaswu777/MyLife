@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title> My Life </title>
-<link rel="stylesheet" type="css/text" href="lifestyle.css"/>
-<script type="text/javascript" src="/static/js/foundation/foundation.js"></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='foundation.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='lifecss.css')}}">
+-
 </head>
 
 <body>
@@ -59,23 +60,23 @@ function testAPI() {
      ref.parentNode.insertBefore(js, ref);
    }(document));
 </script>
-
-    <div class="three columns">
-        <h1>Songs</h1>
+<div id="mylife-container">
+    <div id="music" class="three_columns">
+        <h1 id="first">Songs</h1>
         {% for song in data[0] %}
-            <p>{{ song.data.song.title }}</p>
+            <p id="one">{{ song.data.song.title }}</p>
         {% endfor %}
     </div>
-    <div class="six columns">
-        <h1>Foursquare</h1>
+    <div id="location" class="six_columns">
+        <h1 id="second">Foursquare</h1>
         {% for info in data[1] %}
-            <p>{{ info["name"] }}</p>
+            <p><strong>{{ info["name"] }}</strong></p>
             <p>{{ info["location"]["address"] }}</p>
-            <p>{{ info["location"]["postalcode"] }}</p>
+            <p>{{ info["location"]["postalCode"] }}</p>
             <p>{{ info["location"]["city"] }}</p>
-            <p>{{ info["state"] }}</p>
+            <p>{{ info["location"]["state"] }}</p>
         {% endfor %}
     </div>
-
+</div>
 </body>
 </html>
