@@ -1,13 +1,6 @@
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
 
 body {
 	font-family: heveltica, comic-sans;
-	font-size:16px;
 	background-color:#D8D8D8;
 	min-width:420px;
 	max-width:920px;
@@ -19,6 +12,7 @@ h1 {
 
 p {
 	color:#080808;
+	font-size:16px;
 }
 
 .six columns {
