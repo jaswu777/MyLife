@@ -11,22 +11,26 @@
 <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
-    FB.init({ FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    // connected
-  } else if (response.status === 'not_authorized') {
-    // not_authorized
-  } else {
-    // not_logged_in
-  }
- });
+    FB.init({
       appId      : '235949436543900', // App ID
-      channelUrl : 'murmuring-woodland-1938.herokuapp.com/channel.html', // Channel File
+      channelUrl : 'murmuring-woodland-1938.herokuapp.com/channel.html', // 
+Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
     });
 
+	FB.getLoginStatus(function(response) {
+	  if (response.status === 'connected') {
+		// connected
+	  } else if (response.status === 'not_authorized') {
+		// not_authorized
+		login();
+	  } else {
+		// not_logged_in
+		login();
+	  }
+	 });
     // Additional init code here
 
   };
@@ -34,6 +38,7 @@ function login() {
     FB.login(function(response) {
         if (response.authResponse) {
             // connected
+			testAPI();
         } else {
             // cancelled
         }
