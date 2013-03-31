@@ -11,7 +11,15 @@
 <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
-    FB.init({
+    FB.init({ FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    // connected
+  } else if (response.status === 'not_authorized') {
+    // not_authorized
+  } else {
+    // not_logged_in
+  }
+ });
       235949436543900      : 'YOUR_APP_ID', // App ID
       http://murmuring-woodland-1938.herokuapp.com/.html : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
       status     : true, // check login status
@@ -22,7 +30,21 @@
     // Additional init code here
 
   };
-
+function login() {
+    FB.login(function(response) {
+        if (response.authResponse) {
+            // connected
+        } else {
+            // cancelled
+        }
+    });
+}
+function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+        console.log('Good to see you, ' + response.name + '.');
+    });
+}
   // Load the SDK Asynchronously
   (function(d){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
