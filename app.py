@@ -21,9 +21,9 @@ def mylife():
 @app.route("/porn")
 def porn():
 	return "Porn!"
-
+@app.route("/locations")
 def location():
-    return "LOCATION LOLLLL"
+    return "LOCATIONS LOLLLL"
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
