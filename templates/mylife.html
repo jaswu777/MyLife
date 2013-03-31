@@ -61,35 +61,22 @@ function testAPI() {
    }(document));
 </script>
 
-	<header>
-    <h1> Music </h1>
-    </header>
-    {% for song in songs %}
-        <p>{{ song.data.song.title }}</p>
-    {% endfor %}
-
-    <h3 id="year"> 2013 </h3>
-    <h3 id="month"> March </h3>
-    <h3 id="day"> 30 </h3>
-    <p> Filler Text 1 </p>
-    <p> Filler Text 2 </p>
-    
-    <h3 id="day"> 29 </h3>
-    <p> Filler Text 1 </p>
-    <p> Filler Text 2 </p>
-    {% for song in data[0] %}
-        <p>{{ song.data.song.title }}</p>
-    {% endfor %}
-    <hr>
-    {% for info in data[1] %}
-        <p>{{ info["name"] }}</p>
-        <p>{{ info["location"]["address"] }}</p>
-        <p>{{ info["location"]["postalcode"] }}</p>
-        <p>{{ info["location"]["city"] }}</p>
-        <p>{{ info["state"] }}</p>
-    {% endfor %}
+    <div class="three columns">
+        <h1>Songs</h1>
+        {% for song in data[0] %}
+            <p>{{ song.data.song.title }}</p>
+        {% endfor %}
+    </div>
+    <div class="six columns">
+        <h1>Foursquare</h1>
+        {% for info in data[1] %}
+            <p>{{ info["name"] }}</p>
+            <p>{{ info["location"]["address"] }}</p>
+            <p>{{ info["location"]["postalcode"] }}</p>
+            <p>{{ info["location"]["city"] }}</p>
+            <p>{{ info["state"] }}</p>
+        {% endfor %}
+    </div>
 
 </body>
-
-
 </html>
