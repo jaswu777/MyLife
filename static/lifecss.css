@@ -41,6 +41,11 @@ float: right;
 
 }
 
+#videos {
+    width:400px;
+    float:left;
+}
+
 #mylife-container{
     width: 920px;
     float: left;
